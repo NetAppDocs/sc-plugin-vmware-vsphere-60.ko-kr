@@ -1,0 +1,169 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_prescripts_and_postscripts.html 
+keywords:  
+summary: 데이터 보호 작업의 일부로 사용자 지정 처방과 사후 스크립트를 사용할 수 있습니다. 이러한 스크립트를 사용하면 데이터 보호 작업 전 또는 이후에 자동화를 수행할 수 있습니다. 
+---
+= 사전 스크립트 및 포스트스크립트
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+데이터 보호 작업의 일부로 사용자 지정 처방과 사후 스크립트를 사용할 수 있습니다. 이러한 스크립트를 사용하면 데이터 보호 작업 전 또는 이후에 자동화를 수행할 수 있습니다. 예를 들어 데이터 보호 작업 장애 또는 경고를 자동으로 알리는 스크립트를 포함할 수 있습니다. 처방전과 소인을 설정하기 전에 이러한 스크립트를 만들기 위한 몇 가지 요구 사항을 이해해야 합니다.
+
+
+
+== 지원되는 스크립트 유형입니다
+
+Perl 및 셸 스크립트가 지원됩니다. 쉘 스크립트는 로 `!/bin/bash`시작해야 합니다. (`!/bin/sh` 는 지원되지 않습니다.)
+
+
+
+== 스크립트 경로 위치입니다
+
+사전 스크립트 및 사후 스크립트는 VMware vSphere용 SnapCenter 플러그인에서 실행됩니다. 따라서 스크립트를 실행 가능한 권한으로 VMware vSphere OVA용 SnapCenter 플러그인에 두어야 합니다.
+
+예를 들어: * PERL 스크립트 경로는 * 일 수 있습니다. 쉘 스크립트 경로는 일 수 있습니다 `/support/support/script.pl` `/support/support/script.sh`
+
+스크립트 경로는 스크립트가 실행될 때 검증됩니다.
+
+
+
+== 스크립트 지정 위치
+
+스크립트는 백업 정책에 지정됩니다. 백업 작업이 시작되면 정책은 자동으로 스크립트를 백업 중인 리소스와 연결합니다.
+
+여러 스크립트를 지정하려면 각 스크립트 경로 뒤에 * Enter * 를 눌러 각 스크립트를 별도의 줄에 나열합니다. 세미콜론(;)은 허용되지 않습니다. 여러 개의 처방과 여러 개의 소인을 지정할 수 있습니다. 단일 스크립트는 처방과 PS로 모두 코딩될 수 있으며 다른 스크립트를 호출할 수 있습니다.
+
+
+
+== 스크립트 실행 시
+
+스크립트는 backup_phase에 설정된 값에 따라 실행됩니다.
+
+* backup_phase = pre_backup입니다
++
+Pre_backup 단계에서 Prescripts가 실행됩니다.
+
+
+
+
+NOTE: 처방이 실패하면 백업이 성공적으로 완료되고 경고 메시지가 전송됩니다.
+
+* backup_phase = POST_backup 또는 backup_phase = failed_backup입니다
++
+백업이 성공적으로 완료된 후 작업의 POST_BACKUP 단계에서 또는 백업이 성공적으로 완료되지 않은 경우 FAILED_BACKUP 단계에서 사후 스크립트가 실행됩니다.
+
+
+
+
+NOTE: PS가 실패하면 백업이 성공적으로 완료되고 경고 메시지가 전송됩니다.
+
+다음 사항을 확인하여 스크립트 값이 채워져 있는지 확인하십시오. * PERL 스크립트의 경우: * 쉘 스크립트의 경우 `/support/support/log_env.log` : `/support/support/log_file.log`
+
+
+
+== 스크립트에 환경 변수가 전달되었습니다
+
+스크립트의 다음 표에 나와 있는 환경 변수를 사용할 수 있습니다.
+
+|===
+| 환경 변수 | 설명 
+
+
+| `BACKUP_NAME` | 백업의 이름입니다. 변수는 소인으로만 전달됩니다. 
+
+
+| `BACKUP_DATE` | 백업 날짜( `yyyymmdd` 변수에서 사후 스크립트만 전달됨). 
+
+
+| `BACKUP_TIME` | 백업 시간, Variable Passed in postscripts only(사후 스크립트에만 전달된 변수) 형식 `hhmmss` . 
+
+
+| `BACKUP_PHASE` | 스크립트를 실행할 백업 단계입니다. 유효한 값은 다음과 `PRE_BACKUP, POST_BACKUP, and FAILED_BACKUP`같습니다. 변수 는 처방과 사후 스크립트로 전달됩니다. 
+
+
+| `STORAGE_SNAPSHOTS` | 백업의 스토리지 스냅샷 수입니다. 변수는 소인으로만 전달됩니다. 
+
+
+| `STORAGE_SNAPSHOT.#` | 정의된 스토리지 스냅샷 중 하나로, 다음 형식으로 지정됩니다.
+`<filer>:/vol/<volume>:<ONTAP-snapshot-name>` 사후 스크립트에만 전달된 변수입니다. 
+
+
+| `VIRTUAL_MACHINES` | 백업의 VM 수입니다. 변수 는 처방과 사후 스크립트로 전달됩니다. 
+
+
+| `VIRTUAL_MACHINE.#` | 정의된 가상 머신 중 하나로, 다음 형식으로 지정됩니다.
+`<VM name>[vertical bar]<VM UUID>[vertical bar]<power-state>[vertical bar]<VM snapshot>[vertical bar]<ip-addresses>
+<power-state> has the values POWERED_ON, POWERED_OFF, or
+SUSPENDED`
+`<VM snapshot>` 값 `true` 또는 `false` 변수가 규정 및 사후 스크립트로 전달되었습니다. 
+|===
+
+
+== 스크립트 시간 초과
+
+백업 스크립트의 시간 제한은 15분이며 수정할 수 없습니다.
+
+
+
+== PERL 스크립트 #1의 예
+
+다음 PERL 스크립트는 백업이 실행될 때 환경 변수를 인쇄합니다.
+
+`#!/usr/bin/perl`
+`use warnings;`
+`use strict;`
+`my $argnum;`
+`my $logfile = '/support/support/log_env.log';`
+`open (FH, '>>', $logfile) or die $!;`
+`foreach (sort keys %ENV) {`
+`print FH "$_ = $ENV{$_}\n";`
+`}`
+`print FH "=========\n";`
+`close (FH);`
+
+
+
+== PERL 스크립트 #2의 예
+
+다음 예에서는 백업에 대한 정보를 인쇄합니다.
+
+`#!/usr/bin/perl`
+`use warnings;`
+`use strict;`
+
+`my $argnum;`
+`my $logfile = '/support/support/log_env.log';`
+`open (FH, '>>', $logfile) or die $!;`
+
+`print FH "BACKUP_PHASE is $ENV{'BACKUP_PHASE'}\n";`
+`print FH "Backup name  $ENV{'BACKUP_NAME'}\n";`
+`print FH "Virtual Machine  $ENV{'VIRTUAL_MACHINES'}\n";`
+`print FH "VIRTUAL_MACHINE # is $ENV{'VIRTUAL_MACHINE.1'}\n";`
+`print FH "BACKUP_DATE is $ENV{'BACKUP_DATE'}\n";`
+`print FH "BACKUP_TIME is $ENV{'BACKUP_TIME'}\n";`
+`print FH "STORAGE_SNAPSHOTS is $ENV{'STORAGE_SNAPSHOTS'}\n";`
+`print FH "STORAGE_SNAPSHOT # is $ENV{'STORAGE_SNAPSHOT.1'}\n";`
+
+`print FH "PWD is $ENV{'PWD'}\n";`
+`print FH "INVOCATION_ID is $ENV{'INVOCATION_ID'}\n";`
+
+`print FH "=========\n";`
+`close (FH);`
+
+
+
+== 쉘 스크립트의 예
+
+
+`===============================================`
+`#!/bin/bash`
+`echo Stage $BACKUP_NAME >> /support/support/log_file.log`
+`env >> /support/support/log_file.log`
+`===============================================`

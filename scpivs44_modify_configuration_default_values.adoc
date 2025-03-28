@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_modify_configuration_default_values.html 
+keywords:  
+summary: '운영 효율성을 높이기 위해 구성 파일을 수정하여 기본값을 변경할 수 `scbr.override` 있습니다.' 
+---
+= 구성 기본값을 수정합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+운영 효율성을 높이기 위해 구성 파일을 수정하여 기본값을 변경할 수 `scbr.override` 있습니다. 이러한 값은 백업 중에 생성 또는 삭제된 VMware 스냅샷 수 또는 백업 스크립트의 실행이 중지되기 전의 시간과 같은 설정을 제어합니다.
+
+ `scbr.override`구성 파일은 SnapCenter 애플리케이션 기반 데이터 보호 작업을 지원하는 환경에서 VMware vSphere용 SnapCenter 플러그인에 의해 사용됩니다. 이 파일이 없으면 템플릿 파일에서 만들어야 합니다.

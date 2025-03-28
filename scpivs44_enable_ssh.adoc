@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_enable_ssh.html 
+keywords:  
+summary: VMware vSphere용 SnapCenter 플러그인이 구축되면 기본적으로 SSH가 사용되지 않습니다. 
+---
+= VMware vSphere용 SnapCenter 플러그인용 SSH를 설정합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+VMware vSphere용 SnapCenter 플러그인이 구축되면 기본적으로 SSH가 사용되지 않습니다.
+
+.단계
+. VMware vSphere Client에서 VMware vSphere용 SnapCenter 플러그인이 있는 VM을 선택합니다.
+. 가상 어플라이언스의 * Summary * 탭에서 * Launch Remote Console * 을 클릭하여 유지 관리 콘솔 창을 연 다음 로그온합니다.
++
+유지 관리 콘솔에 액세스하고 로그온하는 방법에 대한 자세한 내용은 을 link:scpivs44_access_the_maintenance_console.html["유지보수 콘솔에 액세스합니다"^]참조하십시오.
+
++
+image:scpivs44_image11.png["유지보수 콘솔 창"]
+
+. 주 메뉴에서 메뉴 옵션 * 2) 시스템 구성 * 을 선택합니다.
+. 시스템 구성 메뉴에서 메뉴 옵션 * 6) SSH 액세스 활성화 * 를 선택한 다음 확인 프롬프트에 " * y * "를 입력합니다.
+. "SSH 액세스 활성화 중..." 메시지가 나타날 때까지 기다립니다. 그런 다음 계속하려면 * Enter * 를 누르고 유지보수 모드를 종료하라는 메시지가 나타나면 * X * 를 입력합니다.
+

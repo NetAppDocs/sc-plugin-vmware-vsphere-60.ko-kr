@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_unmount_a_backup.html 
+keywords:  
+summary: 데이터 저장소의 파일을 더 이상 액세스할 필요가 없을 경우 백업을 마운트 해제할 수 있습니다. 
+---
+= 백업을 마운트 해제합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+데이터 저장소의 파일을 더 이상 액세스할 필요가 없을 경우 백업을 마운트 해제할 수 있습니다.
+
+백업이 VMware vSphere Client GUI에 마운트된 것으로 나열되지만 백업 마운트 해제 화면에 나열되지 않는 경우 REST API를 사용하여 바인딩되지 않은 데이터 저장소를 정리한 다음 마운트 해제 절차를 다시 수행해야 `/backup/{backup-Id}/cleanup` 합니다.
+
+로드 공유 미러 관계의 루트 볼륨이 있는 SVM(스토리지 VM)에 NFS 데이터 저장소의 백업 복사본을 마운트하려고 하면 이 문제를 방지하기 위한 오류가 발생할 수 있습니다. `You may have reached the maximum number of NFS volumes configured in the vCenter. Check the vSphere Client for any error messages.` 최대 볼륨 설정을 변경하려면 * ESX * > * 관리 * > * 설정 * > * 고급 시스템 설정 * 으로 이동하고 NFS를 변경합니다. MaxVolumes 값입니다. 최대값은 256입니다.
+
+.단계
+. VMware vSphere Client 바로 가기 페이지에서 * Storage * 를 선택합니다.
+. 왼쪽 탐색 창에서 데이터 저장소를 마우스 오른쪽 단추로 클릭하고 드롭다운 목록에서 * SnapCenter Plug-in for VMware vSphere * 를 선택한 다음 보조 드롭다운 목록에서 * 마운트 해제 * 를 선택합니다.
++
+
+IMPORTANT: 마운트 해제할 올바른 데이터 저장소를 선택했는지 확인합니다. 그렇지 않으면 생산 작업에 영향을 줄 수 있습니다.
+
+. Unmount Cloned Datastore * 대화 상자에서 데이터 저장소를 선택하고 * Unmount the Cloned datastore * 확인란을 선택한 다음 * Unmount * 를 클릭합니다.
+

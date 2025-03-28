@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_minimum_vcenter_privileges_required.html 
+keywords:  
+summary: VMware vSphere용 SnapCenter 플러그인 구축을 시작하기 전에 필요한 최소 vCenter 권한이 있는지 확인해야 합니다. 
+---
+= 최소 vCenter 권한이 필요합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+VMware vSphere용 SnapCenter 플러그인 구축을 시작하기 전에 필요한 최소 vCenter 권한이 있는지 확인해야 합니다.
+
+
+
+== vCenter 관리자 역할에 필요한 권한
+
+Machine.config.AdvancedConfig.VirtualVirtualConfig.VirtualMachine.VirtualInventory.Local.DeleteVM Host.Local.ReconesVM Network.Assign Resource.ExistenerResource.AddRecommendation.ExisteMachine.Machine.VirtualMachine.Create Machine.VirtualConfig.VirtualMachine.VirtualConfig.VirtualConfig.VirtualMachine.Create Host.Local.VirtualConfig.VirtualMachine.VirtualConfig.ExisteConfig.AddQueryResource Management Machine.ExisterCreation.ExisteMachine.Create Machine.VirtualMachine.Create Machine.VirtualMachine.VirtualMachine.VirtualMachine.VirtualMachine.VirtualMachine.VirtualConfig.VirtualMachine.VirtualMachine.VirtualMachine.VirtualConfig.VirtualMachine.VirtualConfig.VirtualConfig.VirtualConfig.VirtualMachine.VirtualConfig.ExisterCreation.VirtualMachine.Create ExisterCreation.ExisteConfig.Create.Create
+
+
+
+== VMware vCenter용 SnapCenter 플러그인과 관련된 필수 권한
+
+|===
+
+
+| * 권한 * | * 레이블 * 
+
+
+| netscV.Guest.RestoreFile입니다 | 게스트 파일 복원 
+
+
+| NetApp SCV.Recovery.MountUnmount 를 참조하십시오 | 마운트/마운트 해제 
+
+
+| netappSCV.Backup.DeleteBackupJob을 참조하십시오 | 리소스 그룹/백업을 삭제합니다 
+
+
+| netappSCV.Configure.ConfigureStorageSystems.Delete를 참조하십시오 | 스토리지 시스템을 제거합니다 
+
+
+| netappSCV.View를 참조하십시오 | 보기 
+
+
+| netappSCV.Recovery.RecoverVM | VM 복구 
+
+
+| NetApp SCV.Configure.ConfigureStorageSystems.AddUpdate를 참조하십시오 | 스토리지 시스템 추가/수정 
+
+
+| NetApp SCV.Backup.BackupNow | 지금 백업 
+
+
+| netappSCV.Guest.Configure를 참조하십시오 | 게스트 구성 
+
+
+| NetApp SCV.Configure.ConfigureSnapCenterServer를 구성할 수 있습니다 | SnapCenter 서버를 구성합니다 
+
+
+| NetApp SCV.Backup.Backuped가 예약됩니다 | 리소스 그룹을 생성합니다 
+|===
