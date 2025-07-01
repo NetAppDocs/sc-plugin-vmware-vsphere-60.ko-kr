@@ -336,7 +336,6 @@
   <block id="1d92d0cbfdf6166c05997268d3378fe0" category="list-text">링크 모드</block>
   <block id="35f1c688325b0062756b2d7b0d00be28" category="paragraph">연결 모드에서는 각 vCenter에 별도의 가상 어플라이언스가 있습니다. 따라서 vCenter 전체에서 중복 이름을 사용할 수 있습니다. 그러나 리소스 그룹과 동일한 vCenter에서 정책을 생성해야 합니다.</block>
   <block id="9efc9e0c08da510b5195bb9dc4b1b7c2" category="list-text">지원되지 않는 문자입니다</block>
-  <block id="69a02b2d668a0ebee1d9ac100a00074c" category="paragraph">VM, 데이터 저장소, 클러스터, 정책, 백업, 또는 리소스 그룹 이름: %&amp; * $#@! /: *? "&lt;&gt;-|;',.</block>
   <block id="a051f3eeac4a83ec1f5d55c7aeba6f06" category="paragraph">밑줄 문자(_)를 사용할 수 있습니다.</block>
   <block id="6e0b19728555d1c2b7bc98ce7895aced" category="list-text">주파수 설정을 지정합니다.</block>
   <block id="52b19e85e6a29b6fe5690f47944f859f" category="paragraph">정책은 백업 빈도만 지정합니다. 백업에 대한 특정 보호 스케줄은 리소스 그룹에 정의됩니다. 따라서 둘 이상의 리소스 그룹이 동일한 정책 및 백업 빈도를 공유할 수 있지만 백업 스케줄은 다릅니다.</block>
@@ -420,7 +419,6 @@
   <block id="c4436d4a190778b7ec1e9461f6454bdd" category="cell">vCenter Server를 선택합니다</block>
   <block id="df86b612dee850ddbf3bd636d14cd09e" category="cell">vCenter Server를 선택합니다.</block>
   <block id="49ee3087348e8d44e1feda1917443987" category="cell">이름</block>
-  <block id="b6f45f1c26b5dc8cfcdcf884b55437e0" category="cell">자원 그룹의 이름을 입력합니다. VM, 데이터 저장소, 정책, 백업 또는 리소스 그룹 이름에 %&amp; * $#@! /: *? "&lt;&gt;-[수직 막대];',. 밑줄 문자(_)를 사용할 수 있습니다. 특수 문자가 포함된 VM 또는 데이터 저장소 이름이 잘려서 특정 백업을 검색하기 어렵습니다. 연결 모드에서 각 vCenter에는 VMware vSphere용 별도의 SnapCenter 플러그인 저장소가 있습니다. 따라서 vCenter 전체에서 중복 이름을 사용할 수 있습니다.</block>
   <block id="b1358d1843f648e7ea781a21a690cdd0" category="cell">자원 그룹에 대한 설명을 입력합니다.</block>
   <block id="96d008db67fc0b5551a926842bbb6a71" category="cell">통지</block>
   <block id="3a703c8a96e830eedbe6543218be1f6d" category="cell">이 리소스 그룹의 작업에 대한 알림을 받으려면 선택합니다. 오류 또는 경고: 오류 및 경고에 대한 알림을 보냅니다. 오류: 오류에 대한 알림만 보냅니다. 항상: 모든 메시지 유형에 대한 알림을 보냅니다. 안 함: 알림을 보내지 않습니다</block>
@@ -996,7 +994,6 @@
   <block id="e3c333b91de412cbe4acc72a0b293a5f" category="paragraph"><block ref="e3c333b91de412cbe4acc72a0b293a5f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1d25235da54411fda3f47e1c47b94db2" category="list-text">구성 탭에서 백업을 선택하고 * 이름 바꾸기 * 를 클릭합니다.</block>
   <block id="27947ec6e4013d1b08faee7e509cae9e" category="list-text">백업 이름 바꾸기 * 대화 상자에서 새 이름을 입력하고 * 확인 * 을 클릭합니다.</block>
-  <block id="f8ffb952d62ac560c6adb8ac7e15a58e" category="paragraph">VM, 데이터 저장소, 정책, 백업 또는 리소스 그룹 이름에 &amp; * $#@! /: *? "&lt;&gt;-|;',. 밑줄 문자(_)를 사용할 수 있습니다.</block>
   <block id="de00c1e27be1485dd099e4cd2aaa554d" category="section-title">백업을 삭제합니다</block>
   <block id="811a38ca6a4a37270419c2834515cf5c" category="paragraph">다른 데이터 보호 작업을 위한 백업이 더 이상 필요하지 않은 경우 VMware vSphere 백업을 위한 SnapCenter 플러그인을 삭제할 수 있습니다. 하나의 백업을 삭제하거나 여러 백업을 동시에 삭제할 수 있습니다.</block>
   <block id="4b3cb5948249f5d59292e97ced52522d" category="paragraph">마운트된 백업은 삭제할 수 없습니다. 백업을 삭제하려면 먼저 마운트 해제해야 합니다.</block>
@@ -1046,7 +1043,6 @@
   <block id="86f5d700774abd1b4b1161e6afcd312e" category="section-title">리소스 그룹을 수정합니다</block>
   <block id="1850764f60496630a671ed4a4ca36a90" category="paragraph">vCenter의 리소스 그룹에서 리소스를 제거 또는 추가하거나 정책을 분리 또는 첨부하거나 스케줄을 수정하거나 다른 리소스 그룹 옵션을 수정할 수 있습니다.</block>
   <block id="683a572529e7ee01c3f3b2f6e84ee453" category="paragraph">리소스 그룹의 이름을 수정하려면 VM, 데이터 저장소, 정책, 백업 또는 리소스 그룹 이름에 다음 특수 문자를 사용하지 마십시오.</block>
-  <block id="bf6bb853aafb837a490acb97d9acbf87" category="paragraph">%&amp; * $#@! /: *? "&lt;&gt;-|;',.</block>
   <block id="bc967eed1e1f8494f71a02de0d06a1ba" category="list-text">리소스 그룹 편집 * 마법사의 왼쪽 목록에서 수정할 범주를 클릭하고 변경 내용을 입력합니다.</block>
   <block id="e71911e6fc1645b76466cbac653dbb12" category="paragraph">여러 범주에서 변경할 수 있습니다.</block>
   <block id="cb0503d668bf3e03dd4da3d424936f20" category="list-text">요약 페이지가 나타날 때까지 * 다음 * 을 클릭한 다음 * 마침 * 을 클릭합니다.</block>
@@ -2161,4 +2157,8 @@
   <block id="a3d53cfe9124531cb5f9bbfefe704326" category="sidebar">REST API 워크플로우를 사용하여 기본 제공 일정을 수정합니다</block>
   <block id="3da6944b1baaec4beb70694ac307fd1f" category="sidebar">동일한 릴리즈의 새 패치로 업그레이드합니다</block>
   <block id="88464b0f22e28142bc76c51bba424a64" category="cell">NFS 환경: ONTAP SnapMirror Restore VMFS 환경: Storage VMotion을 사용하여 복제 및 마운트</block>
+  <block id="2c6c18c9ea36047e0562b8c63f8cdc3b" category="paragraph">VM, 데이터 저장소, 클러스터, 정책, 백업, 또는 리소스 그룹 이름: %&amp; * $#@! /: *? " &lt; &gt; - | ; ' , 그리고 공백.</block>
+  <block id="60894c2f861771ba620b772dde49422e" category="cell">자원 그룹의 이름을 입력합니다. VM, 데이터 저장소, 정책, 백업 또는 리소스 그룹 이름에 %&amp; * $#@! /: *? " &lt; &gt; - [수직 막대] ; ' 및 공백. 밑줄 문자(_)를 사용할 수 있습니다. 특수 문자가 포함된 VM 또는 데이터 저장소 이름이 잘려서 특정 백업을 검색하기 어렵습니다. 연결 모드에서 각 vCenter에는 VMware vSphere용 별도의 SnapCenter 플러그인 저장소가 있습니다. 따라서 vCenter 전체에서 중복 이름을 사용할 수 있습니다.</block>
+  <block id="9d9d361ca66b8af5110eb490c5e40c1a" category="paragraph">VM, 데이터 저장소, 정책, 백업 또는 리소스 그룹 이름에 &amp; * $#@! /: *? " &lt; &gt; - | ; ' , 그리고 공백. 밑줄 문자(_)를 사용할 수 있습니다.</block>
+  <block id="8651a2d0c6ade87f04ae0bca90386289" category="paragraph">%&amp; * $#@! /: *? " &lt; &gt; - | ; ' , 그리고 공백. 밑줄 문자(_)를 사용할 수 있습니다.</block>
 </blocks>
