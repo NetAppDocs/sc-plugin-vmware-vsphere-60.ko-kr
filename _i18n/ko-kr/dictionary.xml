@@ -2160,4 +2160,5 @@
   <block id="c257f5c852c12409e63afb17104f69c5" category="sidebar">REST API</block>
   <block id="a3d53cfe9124531cb5f9bbfefe704326" category="sidebar">REST API 워크플로우를 사용하여 기본 제공 일정을 수정합니다</block>
   <block id="3da6944b1baaec4beb70694ac307fd1f" category="sidebar">동일한 릴리즈의 새 패치로 업그레이드합니다</block>
+  <block id="88464b0f22e28142bc76c51bba424a64" category="cell">NFS 환경: ONTAP SnapMirror Restore VMFS 환경: Storage VMotion을 사용하여 복제 및 마운트</block>
 </blocks>
